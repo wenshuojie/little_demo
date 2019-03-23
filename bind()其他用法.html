@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("div").bind("mouseover mouseout", function (e) {
+                    $(this).toggleClass("test");
+                });
+            });
+        </script>
+        <style>
+            body{
+                margin: 0%;
+                padding: 0%;
+            }
+            .test {
+                background-color: rgb(197, 161, 231);
+            }
+            #certen{
+                width: 50%;
+                margin: 10px auto;
+                background-color: blanchedalmond;
+                text-align: center;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="certen">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+        </div>
+
+    </body>
+
+</html>

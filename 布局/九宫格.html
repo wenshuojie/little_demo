@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .list {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+
+            .in {
+                position: relative;
+                float: left;
+                height: 33.3%;
+                width: 33.3%;
+                background-color: pink;
+            }
+
+            .in:before {
+                content: '';
+                position: absolute;
+                left: 10px;
+                right: 10px;
+                top: 10px;
+                bottom: 10px;
+                background-color: lightblue;
+                border-radius: 10px;
+            }
+
+            .in:after {
+                content: attr(data-value);
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                height: 30px;
+                margin: auto;
+                text-align: center;
+                font: bold 24px/30px '宋体';
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul class="list">
+            <li class="in" data-value='1'></li>
+            <li class="in" data-value='2'></li>
+            <li class="in" data-value='3'></li>
+            <li class="in" data-value='4'></li>
+            <li class="in" data-value='5'></li>
+            <li class="in" data-value='6'></li>
+            <li class="in" data-value='7'></li>
+            <li class="in" data-value='8'></li>
+            <li class="in" data-value='9'></li>
+        </ul>
+    </body>
+
+</html>

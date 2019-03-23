@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            span {
+                background: #fcc;
+                padding: 2px;
+            }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var $comment = $("#comment");
+                $(".bigger").click(function (e) {
+                    if (!$comment.is(":animated")) {
+                        if ($comment.height() < 500) {
+                            // $comment.height($comment.height()+50);
+                            $comment.animate({
+                                height: "+=50"
+                            }, 400);
+                        }
+                    }
+
+                    e.preventDefault();
+                });
+                $(".smaller").click(function (e) {
+                    if (!$comment.is(":animated")) {
+                        if ($comment.height() > 100) {
+                            // $comment.height($comment.height()-50);
+                            $comment.animate({
+                                height: "-=50"
+                            }, 400);
+                        }
+                    }
+
+                    e.preventDefault();
+                });
+                $(".up").click(function (e) { 
+                    if(!$comment.is(":animated")){
+                        $comment.animate({scrollTop:"-=50"},400);
+                    }
+                    e.preventDefault();
+                    
+                });
+                $(".down").click(function (e) { 
+                    if(!$comment.is(":animated")){
+                        $comment.animate({scrollTop:"+=50"},400);
+                    }
+                    e.preventDefault();
+                    
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <form action="#">
+            <div class="msg">
+                <div class="msg_caption">
+                    <span class="bigger">放大</span>
+                    <span class="smaller">缩小</span>
+                    <span class="up">向上</span>
+                    <span class="down">向下</span>
+                </div>
+                <div>
+                    <textarea name="comment" id="comment" cols="20" rows="8">
+                        中国极地固定翼飞机“雪鹰601”18日成功降落在位
+                        于南极冰盖之巅冰穹A地区的昆仑站机场。这也是“
+                        雪鹰601”投入使用以来第三次成功降落在这一海拔4090米的机场。
+                </textarea>
+                </div>
+            </div>
+        </form>
+    </body>
+
+</html>

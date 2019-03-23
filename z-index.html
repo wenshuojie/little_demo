@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid #666;
+            height: 125px;
+            position: absolute;
+            width: 200px;
+        }
+
+        .box1 {
+            background: pink;
+            left: 110px;
+            top: 50px;
+            z-index: 120;
+        }
+
+        .box2 {
+            background: yellow;
+            left: 0;
+            top: 130px;
+            z-index: 530;
+        }
+
+        .box3 {
+            background: #ccc;
+            position: static;
+            /* 静态的，没有任何效果 */
+            z-index: 1000;
+        }
+
+        .box4 {
+            background: orange;
+            left: 285px;
+            top: 65px;
+            z-index: 3;
+        }
+        .box1:hover{
+            cursor:-webkit-grabbing;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <p>Box 1</p>
+    </div>
+    <div class="box2">
+        <p>Box 2</p>
+    </div>
+    <div class="box3">
+        <p>Box 3</p>
+    </div>
+    <div class="box4">
+        <p>Box 4</p>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .parent {
+                position: relative;
+            }
+
+            .childWrap {
+                position: absolute;
+                left: 50%;
+            }
+
+            .child {
+                position: relative;
+                left: -50%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="parent" style="background-color: gray;height: 20px;">
+            <div class="childWrap">
+                <div class="child" style="background-color: lightblue;">DEMO</div>
+            </div>
+        </div>
+    </body>
+
+</html>

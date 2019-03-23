@@ -1,0 +1,3 @@
+get1：直接构造html文本
+get2：构造xml
+get3：构造json

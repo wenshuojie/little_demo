@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="test.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var page = 1; //初始化版面数
+                var i = 4; //每个版面4张图片
+                var $parent = $(".next").parents("div.v_show"); //父元素
+                var $v_show = $parent.find("div.v_content_list"); //列表项
+                var $v_content = $parent.find("div.v_content"); //列表项外围div
+                var v_width = $v_content.width(); //外围div宽度,就是一个版面的宽度，每次改变left为一个版面的宽度
+                var len = $v_show.find("li").length;
+                    // alert(len);
+                var page_count = Math.ceil(len / i);
+                $(".next").click(function () {
+                    // alert(page_count);
+                    if (!$v_show.is(":animated")) {//判断元素是否处于动画状态，若不在则添加动画，若在，则不添加动画队列
+                        if (page == page_count) {
+                            $v_show.animate({
+                                left: "0px"
+                            }, "slow");
+                            page = 1;
+                        } else {
+                            $v_show.animate({
+                                left: '-=' + v_width
+                            }, "slow");
+                            page++;
+                        }
+                        $(".highlight_tip").find("span").eq((page - 1)).addClass("current") //创建对应的蓝色圆点
+                            .siblings().removeClass("current"); //其余同辈span删除蓝色圆点样式
+                    }
+
+                });
+                $(".prev").click(function () {
+                    // alert(page_count);
+                    if (!$v_show.is(":animated")) {//判断元素是否处于动画状态，若不在则添加动画，若在，则不添加动画队列
+                        if (page == 1) {
+                            $v_show.animate({
+                                left: "-="+v_width*(page_count-1)
+                            }, "slow");
+                            page = page_count;
+                        } else {
+                            $v_show.animate({
+                                left: '+=' + v_width
+                            }, "slow");
+                            page--;
+                        }
+                        $(".highlight_tip").find("span").eq((page - 1)).addClass("current") //创建对应的蓝色圆点
+                            .siblings().removeClass("current"); //其余同辈span删除蓝色圆点样式
+                    }
+
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="v_show">
+            <div class="v_caption">
+                <h2 class="cartoon" title="卡通动漫">卡通动漫</h2>
+                <div class="highlight_tip">
+                    <span class="current">1</span><span>2</span><span>3</span>
+                </div>
+                <div class="change_btn">
+                    <span class="prev">上一页</span>
+                    <span class="next">下一页</span>
+                </div>
+                <em><a href="#">更多>></a></em>
+            </div>
+            <div class="v_content">
+                <div class="v_content_list">
+                    <ul>
+                        <li><a href="#"><img src="img/01.jpg" alt="海贼王"></a>
+                            <h4><a href="#">海贼王</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/01.jpg" alt="海贼王"></a>
+                            <h4><a href="#">海贼王</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/01.jpg" alt="海贼王"></a>
+                            <h4><a href="#">海贼王</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/01.jpg" alt="海贼王"></a>
+                            <h4><a href="#">海贼王</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/01.jpg" alt="海贼王"></a>
+                            <h4><a href="#">海贼王</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/03.jpg" alt="火影忍者"></a>
+                            <h4><a href="#">火影忍者</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/03.jpg" alt="火影忍者"></a>
+                            <h4><a href="#">火影忍者</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/03.jpg" alt="火影忍者"></a>
+                            <h4><a href="#">火影忍者</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                        <li><a href="#"><img src="img/03.jpg" alt="火影忍者"></a>
+                            <h4><a href="#">火影忍者</a></h4>
+                            <span>播放：<em>28.765</em></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

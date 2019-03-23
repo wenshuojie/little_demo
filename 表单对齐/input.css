@@ -1,0 +1,22 @@
+div {
+  border-bottom: 1px solid #efefef;
+  margin: 10px;
+  padding-bottom: 10px;
+}
+.title {
+  float: left;
+  width: 100px;
+  text-align: left;
+  padding-right: 10px;
+}
+.submit {
+  text-align: right;
+}
+#name,#email{
+   overflow: hidden;
+}
+.from{
+  width: 500px;
+  margin:10px auto;
+  border-bottom-style: none;
+}

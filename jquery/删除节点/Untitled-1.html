@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ul li").click(function (e) {
+                alert($(this).html());
+                e.preventDefault();
+            });
+        });
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        /* ul{
+            list-style: none;
+        } */
+        ul li{
+            display: block;
+            float: left;
+            margin: 8px;
+        }
+      button{
+          display: block;
+          clear: both;
+      }
+      .add{
+          color: blue;
+          font-weight: bolder;
+      }
+      .add_{
+          background-color: brown;
+          /* text-decoration: blueviolet; */
+      }
+    </style>
+</head>
+<body>
+    <ul>
+        <li title="一">一0</li>
+        <li title="二">二1</li>
+        <li title="三">三2</li>
+        <li title="四">四3</li>
+        <li title="五">五4</li>
+        <li title="六">六5</li>
+    </ul>
+            <button id="button">测试</button>
+    
+</body>
+</html>

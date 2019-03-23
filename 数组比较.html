@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script type="text/javascript">
+    function compare(value1, value2) {
+        if (value1 < value2) {
+            return -1;
+        }
+        else if (value1 > value2) {
+            return 1;
+        }
+        else {
+            return 0;
+        }
+    }
+    var colors = [0, 12, 15, 4, 8];
+    colors.sort(compare);
+    colors.reverse();
+    alert(colors);
+
+</script>
+
+</html>

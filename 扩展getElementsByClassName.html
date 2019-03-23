@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        
+    </head>
+
+    <body>
+        <ul id="list">
+            <li class="a ab c">1</li>
+            <li class="a">2</li>
+            <li class="ac">3</li>
+            <li class="a b c">4</li>
+            <li class="a b">5</li>
+        </ul>
+    </body>
+    <script>
+            Array.prototype.noRepeat = function () {
+                var result = [];
+                for (var i = 0; i < this.length; i++) {
+                    if (result.indexOf(this[i]) == -1) {
+                        result.push(this[i]);
+                    }
+                }
+                return result;
+            }
+            Array.prototype.inArray = function (value) {
+                for (var i = 0; i < this.length; i++) {
+                    if (this[i] === value) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function getElementsByClassName(parentObj, classStr) {
+                var result = [];
+                //获取parentObj下的所有子元素
+                var objs = parentObj.getElementsByTagName('*');
+                //条件一：如果classStr用空格分隔，则表示class必须同时满足才有效
+                var targetArr1 = classStr.trim().split(/\s+/).noRepeat();
+                //条件二：如果classStr用逗号分隔，则表示class只要有一个满足就有效
+                var targetArr2 = classStr.trim().split(/\s*,\s*/).noRepeat();
+                //只有一个class或者进行条件一测试
+                if (classStr.indexOf(',') == -1) {
+                    label: for (var i = 0; i < objs.length; i++) {
+                        //获取每一个子元素的类名，将其转换为数组后去重
+                        var arr = objs[i].className.trim().split(/\s+/).noRepeat();
+                        // alert(arr);
+                        //进入循环，测试是否符合条件一
+                        for (var j = 0; j < targetArr1.length; j++) {
+                            //如果条件一中的某一项在arr数组中不存在，则跳过该子元素
+                            if (!arr.inArray(targetArr1[j])) {
+                                continue label;
+                            }
+                        }
+                        //将符合条件一的子元素对象放在结果数组中
+                        result.push(objs[i]);
+                    }
+                    //返回结果数组
+                    return result;
+                    //进行条件二测试
+                }
+                else {
+                    label: for (var i = 0; i < objs.length; i++) {
+                        //获取每一个子元素的类名，将其转换为数组后去重
+                        var arr = objs[i].className.trim().split(/\s+/).noRepeat();
+                        //进入循环，测试是否符合条件二
+                        for (var j = 0; j < targetArr2.length; j++) {
+                            //只要条件二的中某一项在arr数组中存在，就符合
+                            if (arr.inArray(targetArr2[j])) {
+                                //将符合条件二的子元素对象放在结果数组中
+                                result.push(objs[i]);
+                                //接着进入下一个子元素测试
+                                continue label;
+                            }
+                        }
+                    }
+                    //返回结果数组
+                    return result;
+                }
+            }
+            // 类名中存在a成立
+            getElementsByClassName(list, 'a').forEach(function (item, index, arr) {
+                item.style.fontWeight = 'bold';
+            });
+            //只有类名中同时存在a和c才成立
+            getElementsByClassName(list, 'a c').forEach(function (item, index, arr) {
+                item.style.color = 'red';
+            });
+            //只要类名中存在b或c即成立
+            getElementsByClassName(list, 'b,c').forEach(function (item, index, arr) {
+                item.style.backgroundColor = 'pink';
+            });
+        </script>
+</html>

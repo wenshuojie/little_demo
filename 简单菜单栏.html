@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .nav{
+            list-style: none;
+        }
+        .nav>li{
+            display: inline;
+            margin: 20px;
+        }
+        /* 子菜单的默认状态 */
+        .nav .subnav {
+            left: -999em;
+            /* 将子菜单移出屏幕 */
+            position: absolute;
+            z-index: 1000;
+        }
+
+        /* 当鼠标停留在父元素li上时子菜单的状态 */
+        .nav li:hover .subnav {
+            left: auto;
+            /* 让子菜单回到自然状态 */
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>一
+            <ul class="subnav">
+                <li>1</li>
+                <li>2</li>
+            </ul>
+        </li>
+        <li>
+            二
+        </li>
+    </ul>
+</body>
+
+</html>

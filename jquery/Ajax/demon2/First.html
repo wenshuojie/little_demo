@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <script src="jquery-3.1.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+            $("#send").click(function (e) { 
+                // $.get(
+                //     "get1.jsp",
+                //     {
+                //         username:$("#username").val(),
+                //         content:$("#content").val()
+                //     },
+                //     function(data,textStatus){
+                //         $("#resText").html(data);
+                //     }
+                // );
+
+                // $.get("get2.php", 
+                //         {
+                //             username:$("#username").val(),
+                //             content:$("#content").val()
+                //         },
+                //         function (data, textStatus) {
+                //             var username = $(data).find("comment").attr("username");
+                //             var content = $(data).find("comment content").text();
+                //             var texHtml = "<p>"+username+"</p><p>"+content+"</p>";
+                //             $("#resText").html(texHtml);
+                //         },
+                // );
+
+                $.get("get3.jsp", 
+                    {
+                        username:$("#username").val(),
+                        content:$("#content").val()
+                    },
+                    function (data, textStatus) {
+                            var username = data.username;
+                            var content = data.content;
+                            var texHtml = "<p>"+username+"</p><p>"+content+"</p>";
+                            $("#resText").html(texHtml);
+                    },
+                    "json"
+                );
+                e.preventDefault();
+                
+            });
+        });
+    </script>
+        <style>
+            label{
+            text-align: right;
+            display: inline-block;
+            
+            vertical-align: top;
+        }
+        div{
+            margin: 5px;
+        }
+    </style>
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div>
+            <form action="#" id="form1">
+                <div>
+                    <label for="username">姓名：</label>
+                    <input type="text" name="username" id="username">
+                </div>
+                <div>
+                    <label for="content" id="label_2">内容：</label>
+                    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                </div>
+                <input type="button" value="提交" id="send">
+            </form>
+            <div class="comment">已有评论：</div>
+            <div id="resText"></div>
+        </div>
+    </body>
+
+</html>

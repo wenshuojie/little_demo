@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script>
+            $(function(){
+                $("a.tooltip").mouseover(function(e){
+                    this.mytitle = this.title;
+                    this.title = ""	
+                    var tooltip = "<div id='tooltip'><img src='"+this.href+"'/></br>"+this.mytitle+"<\/div>"; //创建 div 元素
+                    $("body").append(tooltip);	//把它追加到文档中
+                    $("#tooltip")
+                        .css({
+                            "top": (e.pageY+10) + "px",
+                            "left": (e.pageX+10) + "px"
+                        }).show("fast");	  //设置x坐标和y坐标，并且显示
+                }).mouseout(function(){
+                    this.title = this.mytitle;
+                    $("#tooltip").remove();   //移除 
+                }).mousemove(function(e){
+                    $("#tooltip")
+                        .css({
+                            "top": (e.pageY+10) + "px",
+                            "left": (e.pageX+10) + "px"
+                        })
+                });//跟着鼠标一起移动
+            });
+    </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style type="text/css">
+            body {
+                margin: 0;
+                padding: 40px;
+                background: #fff;
+                font: 80% Arial, Helvetica, sans-serif;
+                color: #555;
+                line-height: 180%;
+            }
+
+            img {
+                border: none;
+                width: 100px;
+                height: 100px;
+            }
+
+            ul,
+            li {
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                list-style: none;
+                float: left;
+                display: inline;
+                margin-right: 10px;
+               
+            }
+
+            /* tooltip */
+            #tooltip {
+                position: absolute;
+                border: 1px solid #ccc;
+                background: #333;
+                padding: 2px;
+                display: none;
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul>
+            <li><a href="1.jpg" class="tooltip" title="picture1"><img src="1.jpg" alt=""></a></li>
+            <li><a href="2.jpg" class="tooltip" title="picture2"><img src="2.jpg" alt=""></a></li>
+            <li><a href="3.jpg" class="tooltip" title="picture3"><img src="3.jpg" alt=""></a></li>
+            <li><a href="4.jpg" class="tooltip" title="picture4"><img src="4.jpg" alt=""></a></li>
+        </ul>
+    </body>
+
+</html>

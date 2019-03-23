@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .list {
+                width: 200px;
+                height: 30px;
+                /* overflow: hidden; */
+                border: 1px solid gray;
+                background-color: lightgreen;
+                line-height: 30px;
+                text-align: justify;
+            }
+
+            .in {
+                background-color: lightblue;
+                padding: 0 10px;
+                display: inline-block;
+            }
+
+            .list:after {
+                content: "";
+                width: 100%;
+                display: inline-block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <ul class="list ">
+            <li class="in">内容</li>
+            <li class="in">样式</li>
+            <li class="in">行为</li>
+        </ul>
+    </body>
+
+</html>

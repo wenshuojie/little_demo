@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#send").click(function (e) { 
+                $("#resTest").load("resource.html");
+                // $("#resTest").load("resource.html .para");筛选
+                e.preventDefault();  
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" name="send" id="send" value="Ajax获取">
+    <div class="comment">已有评论:</div>
+    <div id="resTest"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            .main {
+                display: table;
+                width: 100%;
+                border-collapse: collapse;
+                /*为表格设置合并边框模型：*/
+            }
+
+            .tr {
+                display: table-row;
+                border-color: inherit;
+            }
+
+            .tr1 .td {
+                height: 50px;
+                vertical-align: middle;
+            }
+
+            .td {
+                display: table-cell;
+                border: 1px solid;
+            }
+
+            .td:nth-of-type(1) {
+                width: 100px;
+            }
+
+            .td:nth-of-type(3) {
+                width: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="main">
+            <div class="tr tr1">
+                <div class="td">head1</div>
+                <div class="td">head2</div>
+                <div class="td">head3</div>
+            </div>
+            <div class="tr tr2">
+                <div class="td">123</div>
+                <div class="td">123</div>
+                <div class="td">123</div>
+            </div>
+        </div>
+    </body>
+
+</html>

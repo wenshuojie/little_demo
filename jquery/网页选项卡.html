@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body { 
+            font:12px/19px Arial, Helvetica, sans-serif; 
+            color:#666;
+        }
+        .tab { 
+            width:240px;
+            margin:50px;
+        }
+        .tab_menu { 
+            clear:both;/*左右都不允许出现浮动*/
+        }
+        .tab_menu li{
+            float: left;
+            text-align: center;
+            cursor: pointer;
+            list-style: none;
+            padding: 1px 6px;
+            margin-right: 4px;
+            background: #f1f1f1;
+            border: 1px solid #898989;
+            border-bottom: none;
+        }
+        .tab_menu li:hover{
+            background: #dfdfdf;
+        }
+        .tab_menu li.selected{ 
+            color:#FFF; 
+            background:#6D84B4;
+        }/*注意selected要在hover之后，优先级才高*/
+        .tab_box{
+            clear: both;
+            border: 1px solid #898989;
+            height: 100px;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var $div_li = $("div.tab_menu ul li");//获取元素对象
+            $div_li.click(function(){
+                $(this).addClass("selected")
+                    .siblings().removeClass("selected");//点击添加selected，并移除兄弟元素的selected
+                var index = $div_li.index(this);//获取当前点击li在所有li中的索引值，从0开始
+                $("div.tab_box>div")
+                    .eq(index).show()
+                    .siblings().hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="tab">
+        <div class="tab_menu">
+            <ul>
+                <li class="selected">时事</li>
+                <li>体育</li>
+                <li>娱乐</li>
+            </ul>
+        </div>
+        <div class="tab_box">
+            <div>时事</div>
+            <div class="hide">体育</div>
+            <div class="hide">娱乐</div>
+        </div>
+    </div>
+</body>
+</html>

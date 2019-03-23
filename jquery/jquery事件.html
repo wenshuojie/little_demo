@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $("a").click(function (e) { 
+            //     alert(e.which);
+            //     e.preventDefault();//阻止默认行为
+            // });
+            // $("input").keyup(function (e) { 
+            //     alert(e.which);//获取按键
+            // });
+            $("#btn").one("click", fun1=function (e) {
+                $("#test").append("<p>1</p>");
+            }).bind("myclick",fun2=function(e){
+                $("#test").append("<p>2</p>");//自定义事件
+            }).bind("click",fun3=function(){
+                $("#test").append("<p>3</p>");
+            });
+            $("#btn").trigger("click");//模拟一次点击事件
+            $("#btn").trigger("myclick");//模拟一次自定义事件
+            $("#delete1").bind("click", function (e) {
+                $("#btn").unbind("click",fun3);
+            });
+        });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+   <button id="btn">单击测试</button>
+   <div id="test"></div>
+   <button id="delete1">删除点击事件2</button>
+</body>
+</html>

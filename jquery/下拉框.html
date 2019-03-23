@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            select{
+            width: 100px;
+            height: 160px;
+        }
+        .centent{
+            float: left;
+            margin: 20px;
+        }
+        span{
+            background: #fcc;
+        }
+    </style>
+        <script src="jquery.js" type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                $("#add").click(function (e) {
+                    var $options = $("#select1 option:selected");
+                    $options.appendTo("#select2");
+                    e.preventDefault();
+
+                });
+                $("#add_all").click(function (e) {
+                    var $options = $("#select1 option");
+                    $options.appendTo("#select2");
+                    e.preventDefault();
+
+                });
+                $("#select1").dblclick(function(){
+                    // var $option = $("option:selected",this);
+                    var $option = $(this).find('option:selected')//与上面的写法等价
+                    $option.appendTo("#select2");
+                });
+            });
+        </script>
+    </head>
+
+    <body>
+        <div class="centent">
+            <select multiple name="select1" id="select1">
+                <option value="1">选项一</option>
+                <option value="2">选项二</option>
+                <option value="3">选项三</option>
+                <option value="4">选项四</option>
+                <option value="5">选项五</option>
+                <option value="6">选项六</option>
+                <option value="7">选项七</option>
+                <option value="8">选项八</option>
+            </select>
+            <div>
+                <span id="add">选中添加到右边&gt;&gt;</span><br><br>
+                <span id="add_all">全部添加到右边&gt;&gt;</span>
+            </div>
+        </div>
+        <div class="centent">
+            <select multiple name="select2" id="select2">
+            </select>
+            <div>
+                <span id="remove">&lt;&lt;选中添加到左边</span><br><br>
+                <span id="remove_all">&lt;&lt;全部添加到左边</span>
+            </div>
+        </div>
+    </body>
+
+</html>
