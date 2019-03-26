@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="first">
+            <i>1</i>
+            <div id="test">
+                <p id="p_test">2.1</p>
+                <p>2.2</p>
+            </div>
+            <i>3</i>
+        </div>
+        <button id="btn">按钮</button>
+    </body>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#btn').click(function () {
+                $('p#p_test').parentsUntil('div#first').css('border', '1px solid red');
+            })
+        });
+    </script>
+
+</html>

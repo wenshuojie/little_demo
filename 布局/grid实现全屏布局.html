@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,p{margin: 0;}
+        body,html,.parent{height: 100%;}
+        .parent{
+            display: grid;
+            grid-template-rows:50px auto 50px;
+        }
+        .middle{
+            overflow:hidden;
+            display:grid;
+            grid-template-columns: 100px 1fr;
+            grid-gap:20px;
+        }
+        .right{
+            overflow:auto;
+        }
+        .right-in{
+            height: 1000px;
+        }
+        </style>
+</head>
+<body>
+    <div class="parent" id="parent" style="background-color: lightgrey;">
+        <div class="top" style="background-color: lightblue;">
+            <p>top</p>
+        </div> 
+        <div class="middle" style="background-color: pink;">
+            <div class="left" style="background-color: orange;">
+                <p>left</p>
+            </div>     
+            <div class="right" style="background-color: lightsalmon;">
+                <div class="right-in">
+                    <p>right</p>
+                </div>            
+            </div>                    
+        </div>              
+        <div class="bottom" style="background-color: lightgreen;">
+            <p>bottom</p>
+        </div>        
+    </div>
+</body>
+</html>
